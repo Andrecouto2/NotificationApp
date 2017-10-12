@@ -1,14 +1,19 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11134" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="N2g-7z-cWC">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11106"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Central de notificação-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="NotificationApp" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -16,11 +21,151 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6uw-2A-igU">
+                                <rect key="frame" x="8" y="72" width="359" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="PAR-eb-aWK"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="cSy-zg-hrg"/>
+                                </connections>
+                            </textField>
+                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="shP-Cl-mVD">
+                                <rect key="frame" x="0.0" y="118" width="367" height="216"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="216" id="7oj-UC-tfw"/>
+                                </constraints>
+                                <date key="date" timeIntervalSinceReferenceDate="529454298.01348001">
+                                    <!--2017-10-11 22:38:18 +0000-->
+                                </date>
+                                <date key="minimumDate" timeIntervalSinceReferenceDate="529452000">
+                                    <!--2017-10-11 22:00:00 +0000-->
+                                </date>
+                            </datePicker>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5cp-FA-gn6">
+                                <rect key="frame" x="8" y="350" width="359" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="xuM-ve-Vrj"/>
+                                </constraints>
+                                <state key="normal" title="Enviar notificação"/>
+                                <connections>
+                                    <action selector="fireNotification:" destination="BYZ-38-t0r" eventType="touchUpInside" id="tuL-nf-Hhf"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="..." lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DZb-5F-GVJ">
+                                <rect key="frame" x="0.0" y="426" width="375" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="T3Q-xw-LoY"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zTL-GX-5xR">
+                                <rect key="frame" x="24" y="617" width="343" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="MWm-HO-Kqx"/>
+                                </constraints>
+                                <state key="normal" title="Cancelar notificações"/>
+                                <connections>
+                                    <action selector="cancelNotification:" destination="BYZ-38-t0r" eventType="touchUpInside" id="qlQ-qR-HQi"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="6uw-2A-igU" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" id="0xn-qe-3E0"/>
+                            <constraint firstItem="DZb-5F-GVJ" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="7cs-p9-H1y"/>
+                            <constraint firstItem="5cp-FA-gn6" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="8" id="Gz9-li-296"/>
+                            <constraint firstItem="shP-Cl-mVD" firstAttribute="top" secondItem="6uw-2A-igU" secondAttribute="bottom" constant="16" id="OUj-bm-WOA"/>
+                            <constraint firstAttribute="trailing" secondItem="5cp-FA-gn6" secondAttribute="trailing" constant="8" id="PLi-cB-FLx"/>
+                            <constraint firstItem="DZb-5F-GVJ" firstAttribute="top" secondItem="5cp-FA-gn6" secondAttribute="bottom" constant="46" id="TF6-Q4-3Ix"/>
+                            <constraint firstItem="6uw-2A-igU" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="8" id="TdL-hl-F7d"/>
+                            <constraint firstItem="shP-Cl-mVD" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="dkM-HE-SLo"/>
+                            <constraint firstItem="zTL-GX-5xR" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="8" id="eBX-nb-old"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="zTL-GX-5xR" secondAttribute="bottom" constant="20" id="geG-qf-glo"/>
+                            <constraint firstAttribute="trailing" secondItem="DZb-5F-GVJ" secondAttribute="trailing" id="hiR-lj-gnU"/>
+                            <constraint firstAttribute="trailing" secondItem="6uw-2A-igU" secondAttribute="trailing" constant="8" id="kBk-Eu-Cvc"/>
+                            <constraint firstItem="5cp-FA-gn6" firstAttribute="top" secondItem="shP-Cl-mVD" secondAttribute="bottom" constant="16" id="kYJ-lK-pAc"/>
+                            <constraint firstAttribute="trailing" secondItem="shP-Cl-mVD" secondAttribute="trailing" constant="8" id="oeq-Te-seK"/>
+                            <constraint firstItem="zTL-GX-5xR" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" constant="8" id="t6e-VH-V3v"/>
+                        </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="Central de notificação" id="46e-mc-6nl">
+                        <barButtonItem key="rightBarButtonItem" systemItem="play" id="4Gn-km-2at">
+                            <connections>
+                                <segue destination="PeT-zg-BAZ" kind="show" id="61Y-XN-wxf"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="dpFirebase" destination="shP-Cl-mVD" id="QGH-3v-xH5"/>
+                        <outlet property="lbMessage" destination="DZb-5F-GVJ" id="eLQ-Vs-Kx3"/>
+                        <outlet property="tfMessage" destination="6uw-2A-igU" id="xvV-6b-4h2"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="884" y="122.78860569715144"/>
+        </scene>
+        <!--Second View Controller-->
+        <scene sceneID="Vjz-Pv-2wX">
+            <objects>
+                <viewController id="PeT-zg-BAZ" customClass="SecondViewController" customModule="NotificationApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="vKn-mz-d5X"/>
+                        <viewControllerLayoutGuide type="bottom" id="th9-Yd-SuT"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Pu6-HH-aqJ">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="..." textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jk9-tK-BF0">
+                                <rect key="frame" x="24" y="80" width="343" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="m56-ew-KRp"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="jk9-tK-BF0" firstAttribute="trailing" secondItem="Pu6-HH-aqJ" secondAttribute="trailingMargin" constant="8" id="6Ip-JZ-45S"/>
+                            <constraint firstItem="jk9-tK-BF0" firstAttribute="top" secondItem="vKn-mz-d5X" secondAttribute="bottom" constant="16" id="d9J-Wy-nHZ"/>
+                            <constraint firstItem="jk9-tK-BF0" firstAttribute="leading" secondItem="Pu6-HH-aqJ" secondAttribute="leadingMargin" constant="8" id="xum-Uv-w1f"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="lbMessage" destination="jk9-tK-BF0" id="tH0-P9-SDC"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hk0-L8-dex" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1660" y="146.17691154422789"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Suz-HA-b6u">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="N2g-7z-cWC" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="98a-Jk-kU4">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="DBI-BZ-KWi"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tuG-YL-cA5" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-28" y="123"/>
         </scene>
     </scenes>
 </document>
